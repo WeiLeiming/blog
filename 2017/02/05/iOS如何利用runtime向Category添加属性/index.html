@@ -6,17 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://loonkit.com">
-  <title>Archives: 2017 | WillWei的博客</title>
+  <title>iOS如何利用runtime向Category添加属性 | WillWei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS developer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WillWei的博客">
-<meta property="og:url" content="http://loonkit.com/archives/2017/index.html">
+  <meta name="description" content="Associated Objects
+使用runtime需导入头文件
+
+1#import &amp;lt;objc/runtime.h&amp;gt;
+
+以下方法允许对象在运行时通过键关联任意值
+
+12objc_getAssociatedObject(id object, const void *key);objc_setAssociatedObject(id object, const void *key, i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS如何利用runtime向Category添加属性">
+<meta property="og:url" content="http://loonkit.com/2017/02/05/iOS如何利用runtime向Category添加属性/index.html">
 <meta property="og:site_name" content="WillWei的博客">
-<meta property="og:description" content="iOS developer">
+<meta property="og:description" content="Associated Objects
+使用runtime需导入头文件
+
+1#import &amp;lt;objc/runtime.h&amp;gt;
+
+以下方法允许对象在运行时通过键关联任意值
+
+12objc_getAssociatedObject(id object, const void *key);objc_setAssociatedObject(id object, const void *key, i">
+<meta property="og:updated_time" content="2017-02-05T08:23:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WillWei的博客">
-<meta name="twitter:description" content="iOS developer">
+<meta name="twitter:title" content="iOS如何利用runtime向Category添加属性">
+<meta name="twitter:description" content="Associated Objects
+使用runtime需导入头文件
+
+1#import &amp;lt;objc/runtime.h&amp;gt;
+
+以下方法允许对象在运行时通过键关联任意值
+
+12objc_getAssociatedObject(id object, const void *key);objc_setAssociatedObject(id object, const void *key, i">
   
     <link rel="alternative" href="/atom.xml" title="WillWei的博客" type="application/atom+xml">
   
@@ -142,36 +164,107 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-iOS如何利用runtime向Category添加属性" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/05/iOS如何利用runtime向Category添加属性/" class="archive-article-date">
-  	<time datetime="2017-02-05T06:56:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/05/iOS如何利用runtime向Category添加属性/">iOS如何利用runtime向Category添加属性</a>
+    <h1 class="article-title" itemprop="name">
+      iOS如何利用runtime向Category添加属性
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/02/05/iOS如何利用runtime向Category添加属性/" class="archive-article-date">
+  	<time datetime="2017-02-05T06:56:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Associated-Objects"><a href="#Associated-Objects" class="headerlink" title="Associated Objects"></a>Associated Objects</h1><ul>
+<li>使用runtime需导入头文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &lt;objc/runtime.h&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>以下方法允许对象在运行时通过键关联任意值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">objc_getAssociatedObject(id object, const void *key);</div><div class="line">objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy);</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="Associative-Object-Behaviors"><a href="#Associative-Object-Behaviors" class="headerlink" title="Associative Object Behaviors"></a>Associative Object Behaviors</h2><ul>
+<li>在runtime.h中的定义</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Policies related to associative references.</div><div class="line"> * These are options to objc_setAssociatedObject()</div><div class="line"> */</div><div class="line">typedef OBJC_ENUM(uintptr_t, objc_AssociationPolicy) &#123;</div><div class="line">    OBJC_ASSOCIATION_ASSIGN = 0,           /**&lt; Specifies a weak reference to the associated object. */</div><div class="line">    OBJC_ASSOCIATION_RETAIN_NONATOMIC = 1, /**&lt; Specifies a strong reference to the associated object. </div><div class="line">                                            *   The association is not made atomically. */</div><div class="line">    OBJC_ASSOCIATION_COPY_NONATOMIC = 3,   /**&lt; Specifies that the associated object is copied. </div><div class="line">                                            *   The association is not made atomically. */</div><div class="line">    OBJC_ASSOCIATION_RETAIN = 01401,       /**&lt; Specifies a strong reference to the associated object.</div><div class="line">                                            *   The association is made atomically. */</div><div class="line">    OBJC_ASSOCIATION_COPY = 01403          /**&lt; Specifies that the associated object is copied.</div><div class="line">                                            *   The association is made atomically. */</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<ul>
+<li>根据枚举类型objc_AssociationPolicy定义的行为，可以将值关联到对象上</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Behavior</th>
+<th style="text-align:center">@property Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">OBJC_ASSOCIATION_ASSIGN</td>
+<td style="text-align:center">@property (assign) 或 @property (unsafe_unretained)</td>
+</tr>
+<tr>
+<td style="text-align:center">OBJC_ASSOCIATION_RETAIN_NONATOMIC</td>
+<td style="text-align:center">@property (nonatomic, strong)</td>
+</tr>
+<tr>
+<td style="text-align:center">OBJC_ASSOCIATION_COPY_NONATOMIC</td>
+<td style="text-align:center">@property (nonatomic, copy)</td>
+</tr>
+<tr>
+<td style="text-align:center">OBJC_ASSOCIATION_RETAIN</td>
+<td style="text-align:center">@property (atomic, strong)</td>
+</tr>
+<tr>
+<td style="text-align:center">OBJC_ASSOCIATION_COPY</td>
+<td style="text-align:center">@property (atomic, copy)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><h3 id="NSObject-AssociatedObject-h"><a href="#NSObject-AssociatedObject-h" class="headerlink" title="NSObject+AssociatedObject.h"></a>NSObject+AssociatedObject.h</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@interface NSObject (AssociatedObject)</div><div class="line">@property (nonatomic, strong) id associatedObject;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h3 id="NSObject-AssociatedObject-m"><a href="#NSObject-AssociatedObject-m" class="headerlink" title="NSObject+AssociatedObject.m"></a>NSObject+AssociatedObject.m</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@implementation NSObject (AssociatedObject)</div><div class="line">@dynamic associatedObject;</div><div class="line"></div><div class="line">- (void)setAssociatedObject:(id)object &#123;</div><div class="line">     objc_setAssociatedObject(self, @selector(associatedObject), object, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (id)associatedObject &#123;</div><div class="line">    return objc_getAssociatedObject(self, @selector(associatedObject));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通常建议键是一个静态字符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">static char kAssociatedObjectKey;</div><div class="line">objc_getAssociatedObject(self, &amp;kAssociatedObjectKey);</div></pre></td></tr></table></figure>
+<p>当然，存在一个简单得多的解决方案：只需使用selector。</p>
+<p>更详细的参考请访问[<a href="http://nshipster.com/associated-objects/" target="_blank" rel="external">Associated Objects</a>]</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>真诚赞赏，手留余香<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,122 +284,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://loonkit.com/2017/02/05/iOS如何利用runtime向Category添加属性/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/写在2017开端/" class="archive-article-date">
-  	<time datetime="2017-02-04T01:59:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/写在2017开端/">写在2017开端</a>
-    </h1>
+  
+    <a href="/2017/02/04/写在2017开端/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">写在2017开端</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS如何利用runtime向Category添加属性" data-title="iOS如何利用runtime向Category添加属性" data-url="http://loonkit.com/2017/02/05/iOS如何利用runtime向Category添加属性/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/22/我的第一个博客发文/" class="archive-article-date">
-  	<time datetime="2017-01-22T07:59:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/22/我的第一个博客发文/">我的第一个博客发文</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/20/hello-world/" class="archive-article-date">
-  	<time datetime="2017-01-20T08:43:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -329,8 +406,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
