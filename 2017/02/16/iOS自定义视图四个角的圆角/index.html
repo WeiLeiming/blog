@@ -6,21 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://loonkit.com">
-  <title>Hello World | WillWei的博客</title>
+  <title>iOS自定义视图四个角的圆角 | WillWei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="可以使用UIBezierPath和CAShapeLayer结合实现
+1+ (UIBezierPath *)bezierPathWithRoundedRect:(CGRect)rect byRoundingCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;
+参数corners指定了想要需要成为圆角的角。可选值为：1234567">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://loonkit.com/2017/01/20/hello-world/index.html">
+<meta property="og:title" content="iOS自定义视图四个角的圆角">
+<meta property="og:url" content="http://loonkit.com/2017/02/16/iOS自定义视图四个角的圆角/index.html">
 <meta property="og:site_name" content="WillWei的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2017-01-20T08:43:32.000Z">
+<meta property="og:description" content="可以使用UIBezierPath和CAShapeLayer结合实现
+1+ (UIBezierPath *)bezierPathWithRoundedRect:(CGRect)rect byRoundingCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;
+参数corners指定了想要需要成为圆角的角。可选值为：1234567">
+<meta property="og:updated_time" content="2017-02-16T08:17:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="iOS自定义视图四个角的圆角">
+<meta name="twitter:description" content="可以使用UIBezierPath和CAShapeLayer结合实现
+1+ (UIBezierPath *)bezierPathWithRoundedRect:(CGRect)rect byRoundingCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;
+参数corners指定了想要需要成为圆角的角。可选值为：1234567">
   
     <link rel="alternative" href="/atom.xml" title="WillWei的博客" type="application/atom+xml">
   
@@ -152,35 +155,33 @@ Quick">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-iOS自定义视图四个角的圆角" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      iOS自定义视图四个角的圆角
     </h1>
   
 
         
-        <a href="/2017/01/20/hello-world/" class="archive-article-date">
-  	<time datetime="2017-01-20T08:43:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-20</time>
+        <a href="/2017/02/16/iOS自定义视图四个角的圆角/" class="archive-article-date">
+  	<time datetime="2017-02-16T08:13:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>可以使用UIBezierPath和CAShapeLayer结合实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+ (UIBezierPath *)bezierPathWithRoundedRect:(CGRect)rect byRoundingCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;</div></pre></td></tr></table></figure>
+<p>参数corners指定了想要需要成为圆角的角。可选值为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">typedef NS_OPTIONS(NSUInteger, UIRectCorner) &#123;</div><div class="line">    UIRectCornerTopLeft     = 1 &lt;&lt; 0,</div><div class="line">    UIRectCornerTopRight    = 1 &lt;&lt; 1,</div><div class="line">    UIRectCornerBottomLeft  = 1 &lt;&lt; 2,</div><div class="line">    UIRectCornerBottomRight = 1 &lt;&lt; 3,</div><div class="line">    UIRectCornerAllCorners  = ~0UL</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>使用示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 50, 50)];</div><div class="line">view.backgroundColor = [UIColor redColor];</div><div class="line">[self.view addSubview:view];</div><div class="line">    </div><div class="line">UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];</div><div class="line">CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];</div><div class="line">maskLayer.frame = view.bounds;</div><div class="line">maskLayer.path = maskPath.CGPath;</div><div class="line">view.layer.mask = maskLayer;</div></pre></td></tr></table></figure>
+<p>如果需要将UIView的4个角全部都为圆角，做法相当简单，只需设置其Layer的cornerRadius属性即可。</p>
 
       
 
@@ -210,6 +211,21 @@ Quick">
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Corner</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -260,7 +276,7 @@ Quick">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://loonkit.com/2017/01/20/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://loonkit.com/2017/02/16/iOS自定义视图四个角的圆角/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,15 +290,11 @@ Quick">
   
 <nav id="article-nav">
   
-    <a href="/2017/01/22/我的第一个博客发文/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          我的第一个博客发文
-        
-      </div>
-    </a>
   
+    <a href="/2017/02/05/iOS如何利用runtime向Category添加属性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS如何利用runtime向Category添加属性</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -294,7 +306,7 @@ Quick">
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://loonkit.com/2017/01/20/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="iOS自定义视图四个角的圆角" data-title="iOS自定义视图四个角的圆角" data-url="http://loonkit.com/2017/02/16/iOS自定义视图四个角的圆角/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
