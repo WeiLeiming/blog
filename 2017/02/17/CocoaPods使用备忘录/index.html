@@ -6,17 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://loonkit.com">
-  <title>Tag: runtime | WillWei的博客</title>
+  <title>CocoaPods使用备忘录 | WillWei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS developer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WillWei的博客">
-<meta property="og:url" content="http://loonkit.com/tags/runtime/index.html">
+  <meta name="description" content="CocoaPods 安装
+
+如果网络已经翻墙，在终端中运行如下命令直接安装：
+1sudo gem install cocoapods">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CocoaPods使用备忘录">
+<meta property="og:url" content="http://loonkit.com/2017/02/17/CocoaPods使用备忘录/index.html">
 <meta property="og:site_name" content="WillWei的博客">
-<meta property="og:description" content="iOS developer">
+<meta property="og:description" content="CocoaPods 安装
+
+如果网络已经翻墙，在终端中运行如下命令直接安装：
+1sudo gem install cocoapods">
+<meta property="og:updated_time" content="2017-02-17T02:17:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WillWei的博客">
-<meta name="twitter:description" content="iOS developer">
+<meta name="twitter:title" content="CocoaPods使用备忘录">
+<meta name="twitter:description" content="CocoaPods 安装
+
+如果网络已经翻墙，在终端中运行如下命令直接安装：
+1sudo gem install cocoapods">
   
     <link rel="alternative" href="/atom.xml" title="WillWei的博客" type="application/atom+xml">
   
@@ -148,36 +158,82 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CocoaPods使用备忘录" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/05/iOS如何利用runtime向Category添加属性/" class="archive-article-date">
-  	<time datetime="2017-02-05T06:56:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/05/iOS如何利用runtime向Category添加属性/">iOS如何利用runtime向Category添加属性</a>
+    <h1 class="article-title" itemprop="name">
+      CocoaPods使用备忘录
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/02/17/CocoaPods使用备忘录/" class="archive-article-date">
+  	<time datetime="2017-02-17T02:07:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>CocoaPods 安装</li>
+</ol>
+<p>如果网络已经翻墙，在终端中运行如下命令直接安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>如果没翻墙，可以通过国内 Ruby China 或淘宝的 RubyGems 镜像进行安装。<br>在终端依次运行以下命令：<br>移除ruby的原生镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources --remove https://rubygems.org/</div></pre></td></tr></table></figure>
+<p>用淘宝的镜像代替<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources -a https://ruby.taobao.org/</div></pre></td></tr></table></figure></p>
+<p>或用Ruby China的镜像代替<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources --add https://gems.ruby-china.org/</div></pre></td></tr></table></figure></p>
+<p>查看是否设置成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">gem sources -l</div><div class="line"></div><div class="line">如果输出结果是如下这样，那说明这一步就成功了。</div><div class="line">*** CURRENT SOURCES ***</div><div class="line"></div><div class="line">https://ruby.taobao.org/</div><div class="line">或https://gems.ruby-china.org/</div></pre></td></tr></table></figure></p>
+<p>安装Cocoapods<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods</div></pre></td></tr></table></figure></p>
+<ol>
+<li>其他一些命令<br>查询Cocoapods是否支持某个类库<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod search 类库名</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这个命令搜索的是本机上的最新版本，并没有联网查询。如果运行以上命令，没有搜到或者搜不到最新版本，可以运行以下命令，更新一下本地的 CocoaPods 源列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod repo update</div></pre></td></tr></table></figure></p>
+<p>打开终端，进入到工程目录，执行以下命令，会自动生成一个 Podfile 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod init</div></pre></td></tr></table></figure></p>
+<p>安装框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install</div></pre></td></tr></table></figure></p>
+<p>更新框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pod update</div><div class="line">或</div><div class="line"># 禁止升级 CocoaPods 的 spec 仓库，否则会卡在 Analyzing dependencies，非常慢</div><div class="line">pod update --verbose --no-repo-update</div></pre></td></tr></table></figure></p>
+<p>如果提示找不到库，则可去掉<code>--no-repo-update</code>。</p>
+<p>在CocoaPods 中，有几种设置类库版本的方法。如：</p>
+<p>>= 1.10.X 会根据本地的 CocoaPods 源列表，导入不低于 1.10.X 版本的类库。</p>
+<p>~&gt; 1.10.X 会根据本地的 CocoaPods 源列表，介于 1.10.X~1.11.0 之前版本的类库。 建议锁定版本，便于团队开发。如，指定 1.10.0 版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod &apos;类库名&apos;, &apos;1.10.0&apos;</div></pre></td></tr></table></figure>
+<p>清除 Cocoapods 本地缓存<br>特殊情况下，由于网络或者别的原因，通过 CocoaPods 下载的文件可能会有问题。<br>这时候可以删除 CocoaPods 的缓存(~/Library/Caches/CocoaPods/Pods/Release 目录)，再次导入即可。</p>
+<p>关于 CocoaPods 的更多内容，可以参考 <a href="https://cocoapods.org/" target="_blank" rel="external">CocoaPods 文档</a>。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>真诚赞赏，手留余香<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -187,29 +243,112 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">runtime</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Category</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CocoaPods</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://loonkit.com/2017/02/17/CocoaPods使用备忘录/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/02/16/iOS自定义视图四个角的圆角/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS自定义视图四个角的圆角</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="CocoaPods使用备忘录" data-title="CocoaPods使用备忘录" data-url="http://loonkit.com/2017/02/17/CocoaPods使用备忘录/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -232,9 +371,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
