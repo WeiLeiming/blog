@@ -20,7 +20,7 @@
 
 如果网络已经翻墙，在终端中运行如下命令直接安装：
 1sudo gem install cocoapods">
-<meta property="og:updated_time" content="2017-02-17T02:17:12.000Z">
+<meta property="og:updated_time" content="2017-02-22T01:26:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CocoaPods使用备忘录">
 <meta name="twitter:description" content="CocoaPods 安装
@@ -186,9 +186,10 @@
 <a id="more"></a>
 <p>如果没翻墙，可以通过国内 Ruby China 或淘宝的 RubyGems 镜像进行安装。<br>在终端依次运行以下命令：<br>移除ruby的原生镜像</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources --remove https://rubygems.org/</div></pre></td></tr></table></figure>
-<p>用淘宝的镜像代替<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources -a https://ruby.taobao.org/</div></pre></td></tr></table></figure></p>
-<p>或用Ruby China的镜像代替<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources --add https://gems.ruby-china.org/</div></pre></td></tr></table></figure></p>
-<p>查看是否设置成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">gem sources -l</div><div class="line"></div><div class="line">如果输出结果是如下这样，那说明这一步就成功了。</div><div class="line">*** CURRENT SOURCES ***</div><div class="line"></div><div class="line">https://ruby.taobao.org/</div><div class="line">或https://gems.ruby-china.org/</div></pre></td></tr></table></figure></p>
+<p>用淘宝的镜像代替（淘宝的<a href="https://ruby.taobao.org/" target="_blank" rel="external">镜像源</a>停止更新了，请使用<strong>Ruby China</strong>的<a href="https://gems.ruby-china.org/" target="_blank" rel="external">镜像</a>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources -a https://ruby.taobao.org/</div></pre></td></tr></table></figure>
+<p>用Ruby China的镜像代替<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem sources --add https://gems.ruby-china.org/</div></pre></td></tr></table></figure></p>
+<p>查看是否设置成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">gem sources -l</div><div class="line"></div><div class="line">如果输出结果是如下这样，那说明这一步就成功了。</div><div class="line">*** CURRENT SOURCES ***</div><div class="line"></div><div class="line">https://gems.ruby-china.org/</div></pre></td></tr></table></figure></p>
 <p>安装Cocoapods<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods</div></pre></td></tr></table></figure></p>
 <ol>
 <li>其他一些命令<br>查询Cocoapods是否支持某个类库<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod search 类库名</div></pre></td></tr></table></figure>
@@ -250,10 +251,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CocoaPods</a>
         		</li>
       		
 		</ul>
@@ -452,22 +449,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Macro</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Corner</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">runtime</a>
               </li>
              
@@ -476,11 +457,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
@@ -531,7 +516,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">WillWei,&lt;br&gt;人小，爱好吃&lt;br&gt;&lt;br&gt;心在四川，身在深圳&lt;br&gt;&lt;br&gt;目前是iOS开发</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">WillWei,&lt;br&gt;人小，爱好吃&lt;br&gt;&lt;br&gt;心在四川，身在深圳&lt;br&gt;&lt;br&gt;目前是iOS开发&lt;br&gt;&lt;br&gt;让每一天都有所值</div>
   	  	
     	</section>
     
