@@ -6,24 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://loonkit.com">
-  <title>写在2017开端 | 魏雷鸣的技术博客</title>
+  <title>Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录 | 魏雷鸣的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2016过去的2016，是自己的本命年，也是自己毕业后在深圳度过的第一个完整年份。这一年，算是自己的一个转折之年，没有了初入社会的忐忑，在深圳安定了下来，学到了许许多多的东西，也结交了很多好朋友。
-这一年收获无疑是巨大的，对后续人生影响是不可估量的。
-20172017年，是安心学习沉淀自己技术的一年，牢记。">
+  <meta name="description" content="最近在研究Unity导出的Xcode工程如何集成在现有工程中。现将过程中遇见的问题整理如下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写在2017开端">
-<meta property="og:url" content="http://loonkit.com/2017/02/04/写在2017开端/index.html">
+<meta property="og:title" content="Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录">
+<meta property="og:url" content="http://loonkit.com/2017/03/02/Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录/index.html">
 <meta property="og:site_name" content="魏雷鸣的技术博客">
-<meta property="og:description" content="2016过去的2016，是自己的本命年，也是自己毕业后在深圳度过的第一个完整年份。这一年，算是自己的一个转折之年，没有了初入社会的忐忑，在深圳安定了下来，学到了许许多多的东西，也结交了很多好朋友。
-这一年收获无疑是巨大的，对后续人生影响是不可估量的。
-20172017年，是安心学习沉淀自己技术的一年，牢记。">
-<meta property="og:updated_time" content="2017-02-17T02:34:05.000Z">
+<meta property="og:description" content="最近在研究Unity导出的Xcode工程如何集成在现有工程中。现将过程中遇见的问题整理如下。">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fd8c4lh1l8j30mv01dt96.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdd7hrn1pjj304x010mx1.jpg">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNbRwly1fdd7jiejdqj30c700n3yd.jpg">
+<meta property="og:updated_time" content="2017-03-06T08:45:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写在2017开端">
-<meta name="twitter:description" content="2016过去的2016，是自己的本命年，也是自己毕业后在深圳度过的第一个完整年份。这一年，算是自己的一个转折之年，没有了初入社会的忐忑，在深圳安定了下来，学到了许许多多的东西，也结交了很多好朋友。
-这一年收获无疑是巨大的，对后续人生影响是不可估量的。
-20172017年，是安心学习沉淀自己技术的一年，牢记。">
+<meta name="twitter:title" content="Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录">
+<meta name="twitter:description" content="最近在研究Unity导出的Xcode工程如何集成在现有工程中。现将过程中遇见的问题整理如下。">
+<meta name="twitter:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fd8c4lh1l8j30mv01dt96.jpg">
   
     <link rel="alternative" href="/atom.xml" title="魏雷鸣的技术博客" type="application/atom+xml">
   
@@ -155,29 +153,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-写在2017开端" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      写在2017开端
+      Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录
     </h1>
   
 
         
-        <a href="/2017/02/04/写在2017开端/" class="archive-article-date">
-  	<time datetime="2017-02-04T01:59:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
+        <a href="/2017/03/02/Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录/" class="archive-article-date">
+  	<time datetime="2017-03-02T03:23:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="2016"><a href="#2016" class="headerlink" title="2016"></a>2016</h2><p>过去的2016，是自己的本命年，也是自己毕业后在深圳度过的第一个完整年份。这一年，算是自己的一个转折之年，没有了初入社会的忐忑，在深圳安定了下来，学到了许许多多的东西，也结交了很多好朋友。</p>
-<p>这一年收获无疑是巨大的，对后续人生影响是不可估量的。</p>
-<h2 id="2017"><a href="#2017" class="headerlink" title="2017"></a>2017</h2><p>2017年，是安心学习沉淀自己技术的一年，牢记。</p>
+        <p>最近在研究Unity导出的Xcode工程如何集成在现有工程中。现将过程中遇见的问题整理如下。</p>
+<a id="more"></a>
+<h2 id="Unity导出Xcode工程编译错误"><a href="#Unity导出Xcode工程编译错误" class="headerlink" title="Unity导出Xcode工程编译错误"></a>Unity导出Xcode工程编译错误</h2><ol>
+<li>MapFileParser.sh: Permission denied</li>
+</ol>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fd8c4lh1l8j30mv01dt96.jpg" alt="ADB6928C-7EF7-4469-8CEC-856B504A63B3"></p>
+<p>打开终端，进入<code>MapFileParser.sh</code>所在目录，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chmod 777 MapFileParser.sh</div></pre></td></tr></table></figure>
+<h2 id="Unity导出Xcode工程集成进现有Xcode工程"><a href="#Unity导出Xcode工程集成进现有Xcode工程" class="headerlink" title="Unity导出Xcode工程集成进现有Xcode工程"></a>Unity导出Xcode工程集成进现有Xcode工程</h2><h3 id="集成步骤"><a href="#集成步骤" class="headerlink" title="集成步骤"></a>集成步骤</h3><ol>
+<li>​</li>
+</ol>
+<h3 id="集成过程中遇见的一些问题"><a href="#集成过程中遇见的一些问题" class="headerlink" title="集成过程中遇见的一些问题"></a>集成过程中遇见的一些问题</h3><ol>
+<li>编译完成出现许多<code>Code will never be executed</code>的警告⚠️</li>
+</ol>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdd7hrn1pjj304x010mx1.jpg" alt="111"></p>
+<p>解决方法：在<code>Build Settings</code>中将<code>Unreachable Code</code>设置为<strong>No</strong>可以消除警告</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNbRwly1fdd7jiejdqj30c700n3yd.jpg" alt="222"></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.jianshu.com/p/49fffc543140" target="_blank" rel="external">Unity3D工程并入iOS工程总结</a></p>
+<p><a href="http://www.jianshu.com/p/f98bcfe09dc7" target="_blank" rel="external">unity3D与iOS原生工程项目合并以及合并过程中的问题</a></p>
+<p><a href="http://blog.csdn.net/dylan_lwb_/article/details/51452470" target="_blank" rel="external">iOS - 将Unity导出的Xcode工程导入到另一个Xcode项目, 及常见报错的解决方法</a></p>
+<p><a href="http://www.jianshu.com/p/487015f3bb13" target="_blank" rel="external">将U3d工程嵌入iOS工程中</a></p>
 
       
 
@@ -222,7 +238,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Unity</a>
         		</li>
       		
 		</ul>
@@ -278,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://loonkit.com/2017/02/04/写在2017开端/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://loonkit.com/2017/03/02/Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +312,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/05/iOS如何利用runtime向Category添加属性/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iOS如何利用runtime向Category添加属性
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/22/我的第一个博客发文/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一个博客发文</div>
+    <a href="/2017/03/01/对未来职业方向的一些想法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">对未来职业方向的一些想法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -317,7 +328,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="写在2017开端" data-title="写在2017开端" data-url="http://loonkit.com/2017/02/04/写在2017开端/"></div>
+	<div class="ds-thread" data-thread-key="Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录" data-title="Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录" data-url="http://loonkit.com/2017/03/02/Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
