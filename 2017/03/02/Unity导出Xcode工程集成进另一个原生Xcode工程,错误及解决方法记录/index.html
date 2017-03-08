@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fd8c4lh1l8j30mv01dt96.jpg">
 <meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdd7hrn1pjj304x010mx1.jpg">
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNbRwly1fdd7jiejdqj30c700n3yd.jpg">
-<meta property="og:updated_time" content="2017-03-08T07:48:13.000Z">
+<meta property="og:updated_time" content="2017-03-08T07:53:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录">
 <meta name="twitter:description" content="最近在研究Unity导出的Xcode工程如何集成在现有工程中。现将过程中遇见的问题整理如下。">
@@ -183,19 +183,16 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chmod 777 MapFileParser.sh</div></pre></td></tr></table></figure>
 <h2 id="Unity导出Xcode工程集成进原生Xcode工程"><a href="#Unity导出Xcode工程集成进原生Xcode工程" class="headerlink" title="Unity导出Xcode工程集成进原生Xcode工程"></a>Unity导出Xcode工程集成进原生Xcode工程</h2><h3 id="集成步骤"><a href="#集成步骤" class="headerlink" title="集成步骤"></a>集成步骤</h3><h4 id="Unity导出Xcode工程"><a href="#Unity导出Xcode工程" class="headerlink" title="Unity导出Xcode工程"></a>Unity导出Xcode工程</h4><p>在iOS的<strong>Player Setting</strong>中进行设置</p>
 <ul>
-<li>Resolution and Presentation</li>
-</ul>
+<li><p>Resolution and Presentation</p>
 <p>根据项目需要设定，需要注意的是Orientation方向必须是原生工程Orientation方向的子集</p>
-<ul>
+</li>
 <li><p>Other Settings</p>
 <ul>
 <li>消掉Auto Graphics API，Graphics APIs列表中只留OpenGLES2</li>
-</ul>
-</li>
-</ul>
-<ul>
 <li>Scripting Backend选择IL2CPP</li>
 <li>Bundle Identifier、Target Device、Target minimum iOS Version根据原生工程设置</li>
+</ul>
+</li>
 </ul>
 <h4 id="集成工程"><a href="#集成工程" class="headerlink" title="集成工程"></a>集成工程</h4><ul>
 <li>​</li>
@@ -449,6 +446,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">奇淫巧技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
@@ -470,14 +475,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">奇淫巧技</a>
               </li>
             
             <div class="clearfix"></div>
