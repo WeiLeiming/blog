@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fd8c4lh1l8j30mv01dt96.jpg">
 <meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdd7hrn1pjj304x010mx1.jpg">
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNbRwly1fdd7jiejdqj30c700n3yd.jpg">
-<meta property="og:updated_time" content="2017-03-06T08:45:54.000Z">
+<meta property="og:updated_time" content="2017-03-08T07:48:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录">
 <meta name="twitter:description" content="最近在研究Unity导出的Xcode工程如何集成在现有工程中。现将过程中遇见的问题整理如下。">
@@ -181,16 +181,33 @@
 <p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fd8c4lh1l8j30mv01dt96.jpg" alt="ADB6928C-7EF7-4469-8CEC-856B504A63B3"></p>
 <p>打开终端，进入<code>MapFileParser.sh</code>所在目录，执行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chmod 777 MapFileParser.sh</div></pre></td></tr></table></figure>
-<h2 id="Unity导出Xcode工程集成进现有Xcode工程"><a href="#Unity导出Xcode工程集成进现有Xcode工程" class="headerlink" title="Unity导出Xcode工程集成进现有Xcode工程"></a>Unity导出Xcode工程集成进现有Xcode工程</h2><h3 id="集成步骤"><a href="#集成步骤" class="headerlink" title="集成步骤"></a>集成步骤</h3><ol>
+<h2 id="Unity导出Xcode工程集成进原生Xcode工程"><a href="#Unity导出Xcode工程集成进原生Xcode工程" class="headerlink" title="Unity导出Xcode工程集成进原生Xcode工程"></a>Unity导出Xcode工程集成进原生Xcode工程</h2><h3 id="集成步骤"><a href="#集成步骤" class="headerlink" title="集成步骤"></a>集成步骤</h3><h4 id="Unity导出Xcode工程"><a href="#Unity导出Xcode工程" class="headerlink" title="Unity导出Xcode工程"></a>Unity导出Xcode工程</h4><p>在iOS的<strong>Player Setting</strong>中进行设置</p>
+<ul>
+<li>Resolution and Presentation</li>
+</ul>
+<p>根据项目需要设定，需要注意的是Orientation方向必须是原生工程Orientation方向的子集</p>
+<ul>
+<li><p>Other Settings</p>
+<ul>
+<li>消掉Auto Graphics API，Graphics APIs列表中只留OpenGLES2</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Scripting Backend选择IL2CPP</li>
+<li>Bundle Identifier、Target Device、Target minimum iOS Version根据原生工程设置</li>
+</ul>
+<h4 id="集成工程"><a href="#集成工程" class="headerlink" title="集成工程"></a>集成工程</h4><ul>
 <li>​</li>
-</ol>
+</ul>
 <h3 id="集成过程中遇见的一些问题"><a href="#集成过程中遇见的一些问题" class="headerlink" title="集成过程中遇见的一些问题"></a>集成过程中遇见的一些问题</h3><ol>
 <li>编译完成出现许多<code>Code will never be executed</code>的警告⚠️</li>
 </ol>
 <p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdd7hrn1pjj304x010mx1.jpg" alt="111"></p>
 <p>解决方法：在<code>Build Settings</code>中将<code>Unreachable Code</code>设置为<strong>No</strong>可以消除警告</p>
 <p><img src="https://ww3.sinaimg.cn/large/006tNbRwly1fdd7jiejdqj30c700n3yd.jpg" alt="222"></p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.jianshu.com/p/49fffc543140" target="_blank" rel="external">Unity3D工程并入iOS工程总结</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://docs.unity3d.com/Manual/class-PlayerSettingsiOS.html" target="_blank" rel="external">iOS Player Settings</a></p>
+<p><a href="http://www.jianshu.com/p/49fffc543140" target="_blank" rel="external">Unity3D工程并入iOS工程总结</a></p>
 <p><a href="http://www.jianshu.com/p/f98bcfe09dc7" target="_blank" rel="external">unity3D与iOS原生工程项目合并以及合并过程中的问题</a></p>
 <p><a href="http://blog.csdn.net/dylan_lwb_/article/details/51452470" target="_blank" rel="external">iOS - 将Unity导出的Xcode工程导入到另一个Xcode项目, 及常见报错的解决方法</a></p>
 <p><a href="http://www.jianshu.com/p/487015f3bb13" target="_blank" rel="external">将U3d工程嵌入iOS工程中</a></p>
@@ -444,14 +461,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">奇淫巧技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">runtime</a>
               </li>
              
@@ -461,6 +470,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">奇淫巧技</a>
               </li>
             
             <div class="clearfix"></div>
