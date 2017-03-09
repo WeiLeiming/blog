@@ -15,9 +15,27 @@
 <meta property="og:site_name" content="魏雷鸣的技术博客">
 <meta property="og:description" content="最近在研究Unity导出的Xcode工程如何集成在现有工程中。现将过程中遇见的问题整理如下。">
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fd8c4lh1l8j30mv01dt96.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdgmwn9tqhj305c06ljrq.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdgmyx5urlj30gu06pjs1.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdgogg7fsij30l80cw752.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdgoft719rj30l80cwaau.jpg">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdgoxk1oncj30nj0daabs.jpg">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdgp5v2yb8j30jj0660th.jpg">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNc79ly1fdgphvrzdij30jj067mxq.jpg">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdgplwi962j30j30670t2.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdgpqzi4a9j30jj067dg5.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdgpsr63j4j30eq00ldfq.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdgptuhwqkj30e700ngli.jpg">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNc79ly1fdgpuvg8h4j30j000pmx5.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdgpvqt66yj30c200m0sl.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdgpypkbzrj30fy01vglq.jpg">
+<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fdgq23tobej30fs03m74n.jpg">
+<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdgq4o44sjj30mg05k0ta.jpg">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fdgq7dgx89j30st098js0.jpg">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNc79ly1fdgql76hiuj30ou0fkn0n.jpg">
 <meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNc79ly1fdd7hrn1pjj304x010mx1.jpg">
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNbRwly1fdd7jiejdqj30c700n3yd.jpg">
-<meta property="og:updated_time" content="2017-03-08T07:59:36.000Z">
+<meta property="og:updated_time" content="2017-03-09T11:13:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity导出Xcode工程集成进另一个原生Xcode工程,错误及解决方法记录">
 <meta name="twitter:description" content="最近在研究Unity导出的Xcode工程如何集成在现有工程中。现将过程中遇见的问题整理如下。">
@@ -194,9 +212,78 @@
 </ul>
 </li>
 </ul>
-<h3 id="集成工程"><a href="#集成工程" class="headerlink" title="集成工程"></a>集成工程</h3><ul>
-<li>​</li>
+<p>这是我导出来的工程目录，设备只选择了iPhone</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdgmwn9tqhj305c06ljrq.jpg" alt="111"></p>
+<h3 id="集成工程"><a href="#集成工程" class="headerlink" title="集成工程"></a>集成工程</h3><blockquote>
+<p><strong>注意：</strong>Build Setting和Build Phases中的设置均是根据Unity_Xcode中设置得到的，集成的时候对照两个工程的设置集成</p>
+</blockquote>
+<ul>
+<li>我在原生工程目录下新建了一个Unity文件夹来放置从Unity_Xcode工程中拷贝过来需要使用的文件</li>
 </ul>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdgmyx5urlj30gu06pjs1.jpg" alt="222"></p>
+<ul>
+<li>将文件添加进工程目录</li>
+</ul>
+<p>将Classes、Libraries、MapFileParser.sh添加进工程目录</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdgogg7fsij30l80cw752.jpg" alt="333"></p>
+<p>将Data添加进工程目录</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdgoft719rj30l80cwaau.jpg" alt="444"></p>
+<p>注意这两种不同的添加形式</p>
+<ul>
+<li>添加framework</li>
+</ul>
+<p>根据自己导出的Unity_Xcode工程添加</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdgoxk1oncj30nj0daabs.jpg" alt="555"></p>
+<ul>
+<li>Build Settings</li>
+</ul>
+<p>设置Header Search Paths</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdgp5v2yb8j30jj0660th.jpg" alt="111"></p>
+<p>设置Library Search Paths</p>
+<p><img src="https://ww1.sinaimg.cn/large/006tNc79ly1fdgphvrzdij30jj067mxq.jpg" alt="444"></p>
+<p>设置Other Linker Flags</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdgplwi962j30j30670t2.jpg" alt="333"></p>
+<p>设置Other C Flags &amp; Other C++ Flags</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdgpqzi4a9j30jj067dg5.jpg" alt="222"></p>
+<p>设置C Language Dialect</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdgpsr63j4j30eq00ldfq.jpg" alt="222"></p>
+<p>设置C++ Language Dialect</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdgptuhwqkj30e700ngli.jpg" alt="222"></p>
+<p>设置C++ Standard Library</p>
+<p><img src="https://ww1.sinaimg.cn/large/006tNc79ly1fdgpuvg8h4j30j000pmx5.jpg" alt="222"></p>
+<p>设置Enable Bitcode</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdgpvqt66yj30c200m0sl.jpg" alt="222"></p>
+<p>Add User-Defined Setting</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdgpypkbzrj30fy01vglq.jpg" alt="222"></p>
+<p>添加GCC_THUMB_SUPPORT</p>
+<p>添加GCC_USE_INDIRECT_FUNCTION_CALLS</p>
+<p>添加UNITY_RUNTIME_VERSION。此项根据Unity导出的版本填写。</p>
+<p>添加UNITY_SCRIPTING_BACKEND</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdgq23tobej30fs03m74n.jpg" alt="222"></p>
+<ul>
+<li>Build Phases</li>
+</ul>
+<p>添加Run Script</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tNc79ly1fdgq4o44sjj30mg05k0ta.jpg" alt="222"></p>
+<p>添加”$PROJECT_DIR/iOS_Unity_Test01/Unity/MapFileParser.sh”</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdgq7dgx89j30st098js0.jpg" alt="222"></p>
+<ul>
+<li>新建PCH文件，命名为PrefixHeader。将Classes中的Prefix.pch文件的内容全部拷贝到Supporting Files中的PrefixHeader.pch中，并删除Classes中的Prefix.pch文件引用</li>
+<li>将Classes/main.mm全部内容复制到main.m并把扩展名改为.mm，然后删除Classes/main.mm文件引用，注意红色框圈住的修改细节</li>
+</ul>
+<p><img src="https://ww1.sinaimg.cn/large/006tNc79ly1fdgql76hiuj30ou0fkn0n.jpg" alt="222"></p>
+<ul>
+<li><p>修改UnityAppController.h</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &quot;AppDelegate.h&quot;</div><div class="line">inline UnityAppController*	GetAppController()</div><div class="line">&#123;</div><div class="line">    return (UnityAppController *)[[UIApplication sharedApplication] valueForKeyPath:@&quot;delegate.unityController&quot;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改AppDelegate.h</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">#import &quot;UnityAppController.h&quot;</div><div class="line"></div><div class="line">@interface AppDelegate : UIResponder &lt;UIApplicationDelegate&gt;</div><div class="line"></div><div class="line">@property (strong, nonatomic) UIWindow *window;</div><div class="line">@property (strong, nonatomic) UIWindow *unityWindow;</div><div class="line">@property (strong, nonatomic) UnityAppController *unityController;</div><div class="line"></div><div class="line">- (void)showUnityWindow;</div><div class="line">- (void)hideUnityWindow;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<ul>
+<li>修改AppDelegate.m</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">@implementation AppDelegate</div><div class="line"></div><div class="line">- (UIWindow *)unityWindow &#123;</div><div class="line">    return UnityGetMainWindow();</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)showUnityWindow &#123;</div><div class="line">    [self.unityWindow makeKeyAndVisible];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)hideUnityWindow &#123;</div><div class="line">    [self.window makeKeyAndVisible];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</div><div class="line">    // Override point for customization after application launch.</div><div class="line">    </div><div class="line">    _unityController = [[UnityAppController alloc] init];</div><div class="line">    [_unityController application:application didFinishLaunchingWithOptions:launchOptions];</div><div class="line">    </div><div class="line">    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];</div><div class="line">    TestViewController *vc = [[TestViewController alloc] init];</div><div class="line">    self.window.rootViewController = vc;</div><div class="line">    [self.window makeKeyAndVisible];</div><div class="line">    </div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)applicationWillResignActive:(UIApplication *)application &#123;</div><div class="line">    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.</div><div class="line">    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.</div><div class="line">    [_unityController applicationWillResignActive:application];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)applicationDidEnterBackground:(UIApplication *)application &#123;</div><div class="line">    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.</div><div class="line">    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.</div><div class="line">    [_unityController applicationDidEnterBackground:application];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)applicationWillEnterForeground:(UIApplication *)application &#123;</div><div class="line">    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.</div><div class="line">    [_unityController applicationWillEnterForeground:application];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)applicationDidBecomeActive:(UIApplication *)application &#123;</div><div class="line">    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.</div><div class="line">    [_unityController applicationDidBecomeActive:application];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)applicationWillTerminate:(UIApplication *)application &#123;</div><div class="line">    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.</div><div class="line">    [_unityController applicationWillTerminate:application];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
 <h2 id="集成过程中遇见的一些问题"><a href="#集成过程中遇见的一些问题" class="headerlink" title="集成过程中遇见的一些问题"></a>集成过程中遇见的一些问题</h2><ol>
 <li>编译完成出现许多<code>Code will never be executed</code>的警告⚠️</li>
 </ol>
@@ -459,7 +546,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color1">Unity</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,11 +554,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Unity</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
