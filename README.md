@@ -1,2 +1,2 @@
 # blog
-已移至weileiming.github.io。这里不在更新。
+已迁移至weileiming.github.io。这里不再更新。
